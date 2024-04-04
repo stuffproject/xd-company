@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL of the page to scrape
-url = "https://kpopping.com/database/company/founded-in-2023"
+url = "https://kpopping.com/database/company/founded-in-2024"
 
 # Send a GET request to the URL
 response = requests.get(url)
