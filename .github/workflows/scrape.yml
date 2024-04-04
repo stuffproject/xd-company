@@ -27,4 +27,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add companies.json
           git commit -m "Update companies.json"
-          git push https://github.com/${{ github.repository }}.git HEAD:main
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
