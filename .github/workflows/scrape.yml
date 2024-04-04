@@ -21,10 +21,10 @@ jobs:
         run: python scrape.py
       - name: Push changes
         env:
-          GH_TOKEN: ${{ secret.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add companies.json
           git commit -m "Update companies.json"
-          git push https://${{secret.GH_TOKEN}}@github.com/${{github.repository}}.git HEAD:main
+          git push https://${{secrets.GH_TOKEN}}@github.com/${{github.repository}}.git HEAD:main
