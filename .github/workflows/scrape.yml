@@ -1,39 +1,30 @@
 name: HTML Scraping
-
 on:
   push:
     branches:
       - main
-
 permissions:
   contents: read
-  metadata: read
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
       - name: Install dependencies
         run: pip install requests beautifulsoup4
-
       - name: Run Python script
         run: python scrape.py
-
       - name: Push changes
         env:
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add companies.json
           git commit -m "Update companies.json"
-          git push https://github.com/${{github.repository}}.git HEAD:main
+          git push https://github.com/${{ github.repository }}.git HEAD:main
