@@ -3,7 +3,7 @@ name: HTML Scraping
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   scrape:
