@@ -5,13 +5,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  metadata: read
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      metadata: write
 
     steps:
       - name: Checkout repository
